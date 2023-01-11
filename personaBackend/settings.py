@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': 'personadb',
         'USER': 'personauser',
         'PASSWORD': 'persona123$',
-        'HOST': 'localhost',
+        'HOST': 'postgres://rxbayotidqyktx:abc8d3ba16fc7a1ee0728c3981b35506ccef1f27813c786276817b572de1dd0a@ec2-3-225-213-67.compute-1.amazonaws.com:5432/di5oissv49k0q',
         'PORT': '',
     }
 }

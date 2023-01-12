@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
+    'https://persona-frontend.onrender.com/'
 )
 
 MIDDLEWARE = [

@@ -1,1 +1,0 @@
-web: gunicorn personaBackend.wsgi:application --log-file -

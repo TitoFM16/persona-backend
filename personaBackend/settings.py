@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m^5-8y*tq1a$ah%9y74u)2xv&sh$uz%a*ed)z$ao47%4v(r&b8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -87,10 +87,31 @@ DATABASES = {
     #     'NAME': 'personadb',
     #     'USER': 'personauser',
     #     'PASSWORD': 'persona123$',
-    #     'HOST': 'postgres://rxbayotidqyktx:abc8d3ba16fc7a1ee0728c3981b35506ccef1f27813c786276817b572de1dd0a@ec2-3-225-213-67.compute-1.amazonaws.com:5432/di5oissv49k0q',
+    #     'HOST': 'localhost',
     #     'PORT': '',
     # }
-        'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'persona',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'persona123$',
+    #     'HOST': 'personas-database.cblggjxac6cw.us-east-1.rds.amazonaws.com',
+    #     'PORT': '5427',
+    # }
+    #     'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'personadb',
+    #     'USER': 'personauser',
+    #     'PASSWORD': 'EHSlxSpsvqDh0ee14miPeiEUauzp0WTw',
+    #     'HOST': 'dpg-cevolv02i3mmhmcb59r0-a.oregon-postgres.render.com/personadb',
+    #     'PORT': '5427',
+    # }
+        'default': dj_database_url.parse(
+        'postgres://personauser:EHSlxSpsvqDh0ee14miPeiEUauzp0WTw@dpg-cevolv02i3mmhmcb59r0-a.oregon-postgres.render.com/personadb',
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
+
 }
 
 
